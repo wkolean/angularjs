@@ -18,25 +18,30 @@ gulp.task('jshint', function() {
   return gulp.src('app/scripts/*.js')
     .pipe(plumber())
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
+    .pipe(browserSync.reload({ stream:true }));
 });
-
 
 
 // BrowserSync
 gulp.task('browser-sync', function () {
   browserSync.init({
-    files: ['app/templates/**/*.html', 'app/scripts/**/*.js'],
-    proxy: "http://localhost:5000",
-    port:5001
+      server: {
+          baseDir: "app"
+      },
+      port: 5000
   });
+});
 
+
+
+// Watch for file changes
+gulp.task('watch', function() {
   gulp.watch('app/scripts/**/*.js', ['jshint']);
-  gulp.watch("app/*.html").on('change', browserSync.reload);
-
+  gulp.watch("app/**/*.html").on('change', browserSync.reload);
 });
 
 
 
 // Default task
-gulp.task('default', ['browser-sync']);
+gulp.task('default', ['watch', 'browser-sync']);
