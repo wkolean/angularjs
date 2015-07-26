@@ -1,0 +1,30 @@
+{
+  // Enforcing options
+  "bitwise": false,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "es3": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": true,
+
+  // Relaxing options
+  "strict": true,
+
+  // Environments
+  "browser": true,
+  "devel": true,
+  "jquery": true,
+
+  // Globals
+  "globals": {
+    "_": true,
+    "Backbone": true
+  }
+}
