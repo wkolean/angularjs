@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="sportsStore">
+<head>
+	<meta charset="utf-8" />
+	<title>Sports Store</title>
+	<link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+	<link href="lib/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+	<script src="lib/angular.js"></script>
+	<script src="scripts/sportsstore.js"></script>
+</head>
+<body data-ng-controller="sportsStoreCtrl">
+	<nav class="navbar navbar-inverse">
+		<a class="navbar-brand" href="#">Sports Store</a>
+	</nav>
+
+	<div class="panel panel-default row">
+		<div class="col-xs-3">
+			Categories go here
+		</div>
+
+		<div class="col-xs-8">
+			<div class="well" data-ng-repeat="item in data.products">
+				<h3>
+					<strong>{{item.name}}</strong>
+					<span class="pull-right label label-primary">{{item.price | currency}}</span>
+				</h3>
+				<span class="lead">{{item.description}}</span>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

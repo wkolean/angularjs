@@ -15,7 +15,7 @@ var browserSync   = require('browser-sync').create();
 
 // JSHint
 gulp.task('jshint', function() {
-  return gulp.src('app/scripts/*.js')
+  return gulp.src('app/scripts/**/*.js')
     .pipe(plumber())
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
